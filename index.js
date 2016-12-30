@@ -5,6 +5,10 @@ app.get('/', function (req, res) {
   res.send('<h1>ahello</h1>')
 })
 
+app.get('/ops/health', function (req, res) {
+  res.sendStatus(200);
+})
+
 app.get('/home', function (req, res) {
   res.json({
      key: 'value1',
