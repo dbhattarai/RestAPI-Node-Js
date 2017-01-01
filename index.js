@@ -1,8 +1,15 @@
 var express = require('express')
 var app = express()
-
+var fs = require("fs");
 app.get('/', function (req, res) {
   res.send('<h1>ahello</h1>')
+})
+
+app.get('/listDistrict', function (req, res) {
+   fs.readFile( __dirname + "/" + "dataSource.json", 'utf8', function (err, data) {
+       console.log( data );
+       res.end( data );
+   });
 })
 
 app.get('/ops/health', function (req, res) {
@@ -16,6 +23,6 @@ app.get('/home', function (req, res) {
 });
 })
 
-app.listen(process.env.PORT || 5000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log('Example app listening on port 3000!')
-})
+});
