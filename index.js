@@ -1,11 +1,8 @@
 var express = require('express')
 var app = express()
 var fs = require("fs");
-app.get('/', function (req, res) {
-  res.send('<p><h1>Welcome to the Node Js Rest API Website</h1></p>'+'<p>Click here to get:<p>'+'List of Zones, Districts and headquarters of Nepal')
-})
 
-app.get('/list-districts', function (req, res) {
+app.get('/', function (req, res) {
    fs.readFile( __dirname + "/" + "dataSource.json", 'utf8', function (err, data) {
        console.log( data );
        res.end( data );
